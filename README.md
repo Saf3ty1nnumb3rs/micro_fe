@@ -1,4 +1,38 @@
-# React + TypeScript + Vite
+# React with TypeScript + Vite Frontend
+
+## Overview
+
+This repo hosts the frontend to interact with our micro-services.
+
+## Setup
+
+1. Clone the repo: `git clone https://github.com/Saf3ty1nnumb3rs/micro_fe.git`
+2. Install dependencies: `yarn`
+3. Start the app: `yarn dev`
+
+## Features
+
+- View, add, edit data via micro-services.
+
+## Development
+
+Run `yarn dev` for a dev server.
+
+## Testing
+
+Run `yarn test` to execute tests.
+
+## Deployment
+
+Detailed deployment instructions...
+
+## Contributing
+
+Guidelines for contributing...
+
+## License
+
+This project is licensed under the MIT License.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
