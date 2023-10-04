@@ -78,6 +78,7 @@ export const CreatePostForm = () => {
               data-testid="create-post-submit-button"
               variant="contained"
               type="submit"
+              disabled={!title.length}
             >
               Submit
             </Button>

@@ -54,6 +54,7 @@ export const CreateCommentForm = (props: ICreateCommentFormProps) => {
             <Button
               variant="contained"
               type="submit"
+              disabled={!content.length}
             >
               Submit
             </Button>

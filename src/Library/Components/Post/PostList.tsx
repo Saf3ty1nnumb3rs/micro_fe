@@ -9,7 +9,7 @@ export const PostList = () => {
   const { posts, setPosts } = usePostContext();
   const fetchPosts = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:4000/posts');
+      const response = await axios.get('http://localhost:4002/posts');
       setPosts(response.data);
     } catch(e) {
       console.log(e); // just log error for now; consider useful error messaging on your API
@@ -35,7 +35,7 @@ export const PostList = () => {
         >
           <CardContent>
             <Typography fontSize="1.5rem">{post.title}</Typography>
-            <CommentList postId={post.id} />
+            <CommentList comments={post.comments} />
             <CreateCommentForm postId={post.id} />
           </CardContent>
         </Card>
