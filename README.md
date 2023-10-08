@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repo hosts the frontend to interact with our micro-services.
+This repo hosts the frontend to interact with our micro-services toy project.
 
 ## Setup
 

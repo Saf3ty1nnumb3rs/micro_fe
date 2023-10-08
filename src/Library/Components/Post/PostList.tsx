@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 import { Card, CardContent, Grid, Typography } from '@mui/material';
 import { usePostContext } from '../../Contexts/PostContext';
@@ -7,18 +7,24 @@ import { CommentList } from '../Comment/CommentList';
 
 export const PostList = () => {
   const { posts, setPosts } = usePostContext();
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  const refreshPostList = () => {
+    setRefreshKey(prevKey => prevKey + 1);
+  };
   const fetchPosts = useCallback(async () => {
     try {
       const response = await axios.get('http://localhost:4002/posts');
       setPosts(response.data);
+      refreshPostList();
     } catch(e) {
       console.log(e); // just log error for now; consider useful error messaging on your API
     }
   }, [setPosts]);
 
   useEffect(() => {
-    fetchPosts();// change this to a context that refreshes after post creation
-  }, [fetchPosts]);
+    fetchPosts(); // change this to a context that refreshes after post creation
+  }, [fetchPosts, refreshKey]);
 
   console.log(posts);
   const renderPosts = useMemo(() => Object.values(posts).map((post: IPost) => {

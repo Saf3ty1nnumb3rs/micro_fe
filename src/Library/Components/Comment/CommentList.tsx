@@ -5,7 +5,15 @@ interface ICommentListProps {
 }
 export const CommentList = ({ comments }: ICommentListProps) => {
   const renderComments = comments.map((comment: IComment) => {
-    return <li key={comment.id}>{comment.content}</li>;
+    switch(comment.status) {
+      case 'pending':
+        return <li key={comment.id}>This comment is awaiting moderation</li>;
+      case 'rejected':
+        return <li key={comment.id}>This comment has been rejected</li>;
+      case 'approved':
+      default:
+        return <li key={comment.id}>{comment.content}</li>;
+    }
   });
 
   return (
